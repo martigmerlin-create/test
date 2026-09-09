@@ -24,7 +24,7 @@
       <li><a href="avis.html">Avis clients</a></li>
       <li><a href="horaires.html">Horaires &amp; localisation</a></li>
       <li><a href="contact.html" aria-current="page">Contact</a></li>
-      <li><a class="btn btn-primary" href="contact.html#reservation">Réserver une table</a></li>
+      <li><a class="btn btn-primary" href="https://restaurant-pavillon-de-jade.resos.com/booking" target="_blank" rel="noopener">Réserver une table</a></li>
     </ul>
   </div>
 </header>
@@ -35,11 +35,22 @@
     <div class="container">
       <span class="eyebrow">Contact</span>
       <h1 style="font-size:clamp(2.2rem,4.6vw,3.2rem); margin-top:0.8rem; max-width:20ch;">Réservez votre table, ou écrivez-nous.</h1>
-      <p class="lede">Par téléphone pour une réponse immédiate, ou via le formulaire ci-dessous pour une demande de réservation.</p>
+      <p class="lede">La réservation en ligne se fait via notre système de réservation partenaire ; pour toute autre demande, appelez-nous ou écrivez-nous.</p>
     </div>
   </section>
 
   <section id="reservation" style="padding-top:0;">
+    <div class="container" style="max-width:34rem;">
+      <div class="form-card" style="text-align:center;">
+        <span class="eyebrow" style="justify-content:center; display:flex;">Réservation en ligne</span>
+        <h2 style="margin-top:0.6rem; font-size:1.5rem;">Choisissez votre date et votre heure</h2>
+        <p style="color:var(--ink-dim); font-size:0.94rem; margin-top:0.5rem;">La réservation se fait directement sur notre système partenaire, avec confirmation immédiate.</p>
+        <a class="btn btn-primary" style="margin-top:1.3rem;" href="https://restaurant-pavillon-de-jade.resos.com/booking" target="_blank" rel="noopener">Réserver en ligne</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
     <div class="container contact-grid">
 
       <div class="contact-info">
@@ -49,20 +60,19 @@
           <dd><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.%20de%20l%27Industrie%2031%2C%201870%20Monthey" target="_blank" rel="noopener">Av. de l'Industrie 31, 1870 Monthey</a></dd>
           <dt>Téléphone</dt>
           <dd><a href="tel:+41244723215">024 472 32 15</a></dd>
+          <dt>E-mail</dt>
+          <dd><a href="mailto:info.pavillondejade@mail.ch">info.pavillondejade@mail.ch</a></dd>
           <dt>Horaires</dt>
           <dd>Mar–dim midi, mar–sam soir · <a href="horaires.html">détail complet</a></dd>
         </dl>
-        <p class="menu-note" style="margin-top:1.6rem;">
-          Adresse e-mail de contact à confirmer : le formulaire ci-contre utilise pour l'instant <code>reservations@pavillondejade.ch</code> à titre d'exemple.
-        </p>
       </div>
 
       <div class="form-card">
-        <h2 style="font-size:1.4rem;">Demande de réservation</h2>
-        <p style="color:var(--ink-dim); font-size:0.92rem; margin-top:0.4rem;">Nous confirmons chaque réservation par téléphone selon nos disponibilités.</p>
+        <h2 style="font-size:1.4rem;">Une autre demande ?</h2>
+        <p style="color:var(--ink-dim); font-size:0.92rem; margin-top:0.4rem;">Groupe de plus de 20 personnes, salle privée, allergies particulières : écrivez-nous directement.</p>
 
-        <form id="reservation-form" action="mailto:reservations@pavillondejade.ch" method="post" enctype="text/plain" style="margin-top:1.4rem;" novalidate>
-          <input type="hidden" name="Sujet" value="Demande de réservation — site web">
+        <form id="reservation-form" action="mailto:info.pavillondejade@mail.ch" method="post" enctype="text/plain" style="margin-top:1.4rem;" novalidate>
+          <input type="hidden" name="Sujet" value="Demande via le site web — Pavillon de Jade">
 
           <div class="form-row">
             <div class="field">
@@ -82,52 +92,21 @@
             <input type="email" id="email" name="Email" autocomplete="email">
           </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="date">Date souhaitée</label>
-              <input type="date" id="date" name="Date" required>
-              <span class="error">Merci de choisir une date où nous sommes ouverts.</span>
-              <span class="hint">Fermé le lundi.</span>
-            </div>
-            <div class="field">
-              <label for="time">Heure souhaitée</label>
-              <select id="time" name="Heure" required>
-                <option value="" selected disabled>Choisir un horaire</option>
-                <optgroup label="Service de midi">
-                  <option>11h30</option>
-                  <option>12h00</option>
-                  <option>12h30</option>
-                  <option>13h00</option>
-                  <option>13h30</option>
-                </optgroup>
-                <optgroup label="Service du soir">
-                  <option>18h30</option>
-                  <option>19h00</option>
-                  <option>19h30</option>
-                  <option>20h00</option>
-                  <option>20h30</option>
-                  <option>21h00</option>
-                </optgroup>
-              </select>
-              <span class="error">Merci de choisir un horaire.</span>
-            </div>
-          </div>
-
           <div class="field">
-            <label for="guests">Nombre de personnes</label>
-            <input type="number" id="guests" name="Personnes" min="1" max="20" value="2" required>
+            <label for="guests">Nombre de personnes <span style="font-weight:400; color:var(--ink-faint);">(si pertinent)</span></label>
+            <input type="number" id="guests" name="Personnes" min="1" max="200" value="20">
             <span class="error">Merci d'indiquer un nombre de personnes valide.</span>
-            <span class="hint">Plus de 20 personnes ? Appelez-nous directement au 024 472 32 15.</span>
           </div>
 
           <div class="field">
-            <label for="message">Message <span style="font-weight:400; color:var(--ink-faint);">(allergies, occasion particulière…)</span></label>
-            <textarea id="message" name="Message"></textarea>
+            <label for="message">Message <span style="font-weight:400; color:var(--ink-faint);">(allergies, salle privée, banquet…)</span></label>
+            <textarea id="message" name="Message" required></textarea>
+            <span class="error">Merci de préciser votre demande.</span>
           </div>
 
-          <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+          <button class="btn btn-primary" type="submit">Envoyer le message</button>
           <div class="form-status" role="status"></div>
-          <p class="form-fallback-note">En envoyant, votre messagerie s'ouvre avec les informations pré-remplies ; il ne reste qu'à cliquer sur envoyer. Vous pouvez aussi réserver directement par téléphone.</p>
+          <p class="form-fallback-note">En envoyant, votre messagerie s'ouvre avec les informations pré-remplies ; il ne reste qu'à cliquer sur envoyer. Vous pouvez aussi nous appeler directement.</p>
         </form>
       </div>
 
@@ -156,7 +135,7 @@
         <ul>
           <li><a href="horaires.html">Horaires &amp; localisation</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html#reservation">Réserver une table</a></li>
+          <li><a href="https://restaurant-pavillon-de-jade.resos.com/booking" target="_blank" rel="noopener">Réserver une table</a></li>
         </ul>
       </div>
       <div>

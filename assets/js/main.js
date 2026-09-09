@@ -161,7 +161,7 @@
 
     form.addEventListener('submit', function (e) {
       var valid = true;
-      var fields = form.querySelectorAll('input[required], select[required]');
+      var fields = form.querySelectorAll('input[required], select[required], textarea[required]');
       fields.forEach(clearError);
 
       fields.forEach(function (field) {
