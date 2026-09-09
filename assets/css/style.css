@@ -1,13 +1,13 @@
 /* ==========================================================================
    Pavillon de Jade — feuille de style principale
-   Palette : jade profond, papier de riz, encre, touche d'or discrète.
+   Palette : rouge profond (laque), encre noire, papier de riz, touche d'or.
    ========================================================================== */
 
 :root{
-  --jade-deep: #16332c;
-  --jade: #2f6b57;
-  --jade-soft: #e7efe8;
-  --jade-line: #cddcd2;
+  --ink-deep: #1c1613;
+  --red: #a3272d;
+  --red-dark: #7e1e23;
+  --red-soft: #f6e5e3;
   --rice: #f8f3e8;
   --rice-alt: #f1ead9;
   --ink: #201d18;
@@ -17,7 +17,7 @@
   --line: rgba(32,29,24,0.14);
   --line-soft: rgba(32,29,24,0.08);
   --white: #fffdf8;
-  --focus: #1c5c46;
+  --focus: #7e1e23;
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
@@ -40,7 +40,7 @@ h1, h2, h3, h4{
   font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
   font-weight: 600;
   margin: 0;
-  color: var(--jade-deep);
+  color: var(--ink-deep);
   text-wrap: balance;
   letter-spacing: 0.005em;
 }
@@ -72,7 +72,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .skip-link{
   position: absolute;
   left: 1rem; top: -3rem;
-  background: var(--jade-deep);
+  background: var(--ink-deep);
   color: var(--white);
   padding: 0.6rem 1rem;
   border-radius: 4px;
@@ -92,7 +92,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--jade);
+  color: var(--red);
 }
 .eyebrow::before{
   content: '';
@@ -126,15 +126,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
   font-size: 1.4rem;
-  color: var(--jade-deep);
+  color: var(--ink-deep);
   white-space: nowrap;
 }
 .brand .mark{
   display: inline-block;
   width: 9px; height: 9px;
   border-radius: 50%;
-  background: var(--jade);
-  box-shadow: 0 0 0 3px var(--jade-soft);
+  background: var(--red);
+  box-shadow: 0 0 0 3px var(--red-soft);
 }
 .nav-right{
   display: flex;
@@ -158,12 +158,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-family: 'Karla', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--jade-deep);
+  color: var(--ink-deep);
   list-style: none;
   user-select: none;
 }
 .nav-toggle::-webkit-details-marker{ display: none; }
-.nav-toggle:hover{ border-color: var(--jade); }
+.nav-toggle:hover{ border-color: var(--red); }
 .nav-toggle .chevron{ transition: transform 0.2s ease; flex-shrink: 0; }
 .nav-menu[open] .nav-toggle .chevron{ transform: rotate(180deg); }
 
@@ -176,7 +176,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   opacity: 1;
   border: 1px solid var(--line);
   border-radius: 8px;
-  box-shadow: 0 16px 34px rgba(22,51,44,0.16);
+  box-shadow: 0 16px 34px rgba(28,22,19,0.18);
   padding: 0.5rem;
   list-style: none;
   margin: 0;
@@ -191,8 +191,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 500;
   color: var(--ink-dim);
 }
-.nav-dropdown a:hover{ background: var(--jade-soft); color: var(--jade-deep); }
-.nav-dropdown a[aria-current="page"]{ background: var(--jade-soft); color: var(--jade-deep); font-weight: 600; }
+.nav-dropdown a:hover{ background: var(--red-soft); color: var(--ink-deep); }
+.nav-dropdown a[aria-current="page"]{ background: var(--red-soft); color: var(--ink-deep); font-weight: 600; }
 
 @media (max-width: 480px){
   .nav-dropdown{ left: 0; min-width: 0; }
@@ -214,17 +214,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   cursor: pointer;
   transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
 }
-.btn-primary{ background: var(--jade-deep); color: var(--white); }
-.btn-primary:hover{ background: var(--jade); }
+.btn-primary{ background: var(--red); color: var(--white); }
+.btn-primary:hover{ background: var(--red-dark); }
 .btn-primary:active{ transform: scale(0.98); }
-.btn-ghost{ background: transparent; color: var(--jade-deep); border-color: var(--line); }
-.btn-ghost:hover{ border-color: var(--jade); color: var(--jade); }
+.btn-ghost{ background: transparent; color: var(--ink-deep); border-color: var(--line); }
+.btn-ghost:hover{ border-color: var(--red); color: var(--red); }
 
 @media (max-width: 480px){
   .nav-right .btn-primary{ padding: 0.55rem 0.9rem; font-size: 0.82rem; }
 }
 
-/* -------------------------------------------------- open-now badge */
+/* -------------------------------------------------- open-now badge
+   Rouge = fermé (comme un feu), or = ouvert (comme une lanterne allumée) —
+   pas de vert dans la palette. */
 .open-badge{
   display: inline-flex;
   align-items: center;
@@ -233,16 +235,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 600;
   padding: 0.4rem 0.8rem;
   border-radius: 100px;
-  background: var(--jade-soft);
-  color: var(--jade-deep);
+  background: rgba(171,133,82,0.16);
+  color: var(--ink-deep);
 }
 .open-badge .dot{
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: #2f8f5c;
+  background: var(--gold);
 }
-.open-badge[data-state="closed"] .dot{ background: #a9583f; }
-.open-badge[data-state="closed"]{ background: #f3e6e0; color: #7a3a26; }
+.open-badge[data-state="closed"] .dot{ background: var(--red); }
+.open-badge[data-state="closed"]{ background: var(--red-soft); color: var(--red-dark); }
 
 /* -------------------------------------------------- ink divider */
 .ink-divider{
@@ -285,7 +287,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   line-height: 1.06;
   margin-top: 0.8rem;
 }
-.hero h1 em{ font-style: italic; color: var(--jade); }
+.hero h1 em{ font-style: italic; color: var(--red); }
 .hero .lede{
   margin-top: 1.3rem;
   max-width: 42ch;
@@ -314,7 +316,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   position: relative;
   aspect-ratio: 4/5;
   border-radius: 6px;
-  background: linear-gradient(175deg, var(--jade-deep), #0f2119);
+  background: linear-gradient(175deg, var(--ink-deep), #100b09);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -338,7 +340,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* -------------------------------------------------- sections */
 section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
 .section-alt{ background: var(--rice-alt); }
-.section-jade{ background: var(--jade-deep); color: var(--rice); }
+.section-jade{ background: var(--ink-deep); color: var(--rice); }
 .section-jade h2, .section-jade h3{ color: var(--white); }
 .section-jade .eyebrow{ color: var(--gold); }
 .section-jade .eyebrow::before{ background: var(--gold); }
@@ -374,7 +376,7 @@ section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--jade);
+  color: var(--red);
 }
 .service-card h3{ margin-top: 0.6rem; font-size: 1.35rem; }
 .service-card p{ margin-top: 0.6rem; color: var(--ink-dim); font-size: 0.94rem; line-height: 1.6; }
@@ -399,17 +401,17 @@ section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
 .menu-list .price{
   font-family: 'Karla', sans-serif;
   font-variant-numeric: tabular-nums;
-  color: var(--jade-deep);
+  color: var(--ink-deep);
   font-weight: 700;
   white-space: nowrap;
 }
 .menu-note{
   margin-top: 1.3rem;
   padding: 0.9rem 1.1rem;
-  background: var(--jade-soft);
+  background: var(--rice-alt);
   border-radius: 4px;
   font-size: 0.86rem;
-  color: var(--jade-deep);
+  color: var(--ink-deep);
 }
 
 /* -------------------------------------------------- reviews */
@@ -435,7 +437,7 @@ section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
 .hours-table{ width: 100%; border-collapse: collapse; }
 .hours-table th{ text-align: left; padding: 0 0 0.7rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; }
 .hours-table td{ padding: 0.7rem 0; border-top: 1px solid var(--line-soft); font-size: 0.98rem; }
-.hours-table tr.is-today td{ font-weight: 700; color: var(--jade-deep); }
+.hours-table tr.is-today td{ font-weight: 700; color: var(--red); }
 .hours-table td.closed{ color: var(--ink-faint); font-style: italic; }
 .hours-table td.day{ text-transform: capitalize; }
 
@@ -464,7 +466,7 @@ section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
 .form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 @media (max-width: 560px){ .form-row{ grid-template-columns: 1fr; } }
 .field{ margin-bottom: 1.1rem; }
-.field label{ display: block; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--jade-deep); }
+.field label{ display: block; font-size: 0.84rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--ink-deep); }
 .field .hint{ display: block; font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.35rem; }
 .field input, .field select, .field textarea{
   width: 100%;
@@ -476,10 +478,10 @@ section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
   font-size: 0.98rem;
   color: var(--ink);
 }
-.field input:focus, .field select:focus, .field textarea:focus{ border-color: var(--jade); }
+.field input:focus, .field select:focus, .field textarea:focus{ border-color: var(--red); }
 .field textarea{ resize: vertical; min-height: 5.5rem; }
-.field.invalid input, .field.invalid select, .field.invalid textarea{ border-color: #a9583f; }
-.field .error{ display: none; font-size: 0.78rem; color: #a9583f; margin-top: 0.35rem; }
+.field.invalid input, .field.invalid select, .field.invalid textarea{ border-color: var(--red-dark); }
+.field .error{ display: none; font-size: 0.78rem; color: var(--red-dark); margin-top: 0.35rem; }
 .field.invalid .error{ display: block; }
 .form-status{
   margin-top: 1rem;
@@ -489,8 +491,8 @@ section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
   display: none;
 }
 .form-status.show{ display: block; }
-.form-status.ok{ background: var(--jade-soft); color: var(--jade-deep); }
-.form-status.err{ background: #f3e6e0; color: #7a3a26; }
+.form-status.ok{ background: var(--rice-alt); color: var(--ink-deep); }
+.form-status.err{ background: var(--red-soft); color: var(--red-dark); }
 .form-fallback-note{ margin-top: 1rem; font-size: 0.78rem; color: var(--ink-faint); }
 
 /* -------------------------------------------------- cta band */
@@ -499,7 +501,7 @@ section{ padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
 .cta-band .hero-actions{ justify-content: center; }
 
 /* -------------------------------------------------- footer */
-.site-footer{ background: var(--jade-deep); color: rgba(248,243,232,0.82); padding: clamp(2.6rem, 5vw, 3.6rem) 0 2rem; }
+.site-footer{ background: var(--ink-deep); color: rgba(248,243,232,0.82); padding: clamp(2.6rem, 5vw, 3.6rem) 0 2rem; }
 .footer-grid{ display: grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap: 2rem; }
 @media (max-width: 780px){ .footer-grid{ grid-template-columns: repeat(2, 1fr); } }
 .footer-grid h4{ font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248,243,232,0.5); margin: 0 0 0.9rem; }
