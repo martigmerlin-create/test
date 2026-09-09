@@ -111,6 +111,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-bottom: 1px solid var(--line-soft);
 }
 .nav{
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -135,32 +136,67 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   background: var(--jade);
   box-shadow: 0 0 0 3px var(--jade-soft);
 }
-.nav-links{
+.nav-right{
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2vw, 1.7rem);
-  list-style: none;
-  margin: 0; padding: 0;
+  gap: 0.7rem;
 }
-.nav-links a:not(.btn){
-  position: relative;
+
+/* <details>/<summary> : le menu s'ouvre nativement, sans JavaScript.
+   Le panneau se positionne par rapport à .nav (pleine largeur) et non par
+   rapport à .nav-menu (qui n'est large que du bouton), pour rester ancré
+   au bord droit du contenu même sur petit écran. */
+.nav-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  font-family: 'Karla', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--jade-deep);
+  list-style: none;
+  user-select: none;
+}
+.nav-toggle::-webkit-details-marker{ display: none; }
+.nav-toggle:hover{ border-color: var(--jade); }
+.nav-toggle .chevron{ transition: transform 0.2s ease; flex-shrink: 0; }
+.nav-menu[open] .nav-toggle .chevron{ transform: rotate(180deg); }
+
+.nav-dropdown{
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  min-width: 15rem;
+  background: var(--rice);
+  opacity: 1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(22,51,44,0.16);
+  padding: 0.5rem;
+  list-style: none;
+  margin: 0;
+  z-index: 40;
+}
+.nav-dropdown a{
+  display: block;
+  padding: 0.7rem 0.9rem;
+  border-radius: 5px;
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--ink-dim);
-  padding: 0.3rem 0.05rem;
 }
-.nav-links a:not(.btn)::after{
-  content: '';
-  position: absolute;
-  left: 0; right: 100%;
-  bottom: 0;
-  height: 1px;
-  background: var(--jade);
-  transition: right 0.25s ease;
+.nav-dropdown a:hover{ background: var(--jade-soft); color: var(--jade-deep); }
+.nav-dropdown a[aria-current="page"]{ background: var(--jade-soft); color: var(--jade-deep); font-weight: 600; }
+
+@media (max-width: 480px){
+  .nav-dropdown{ left: 0; min-width: 0; }
 }
-.nav-links a:not(.btn):hover, .nav-links a:not(.btn)[aria-current="page"]{ color: var(--jade-deep); }
-.nav-links a:not(.btn):hover::after, .nav-links a:not(.btn)[aria-current="page"]::after{ right: 0; }
 
 .btn{
   display: inline-flex;
@@ -184,36 +220,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .btn-ghost{ background: transparent; color: var(--jade-deep); border-color: var(--line); }
 .btn-ghost:hover{ border-color: var(--jade); color: var(--jade); }
 
-.nav-toggle{
-  display: none;
-  background: none;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 0.45rem 0.6rem;
-  cursor: pointer;
-}
-.nav-toggle svg{ color: var(--jade-deep); }
-
-@media (max-width: 860px){
-  .nav-links{
-    position: absolute;
-    left: 0; right: 0; top: 100%;
-    background: var(--rice);
-    border-bottom: 1px solid var(--line-soft);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 0.5rem clamp(1.25rem,4vw,2.5rem) 1rem;
-    display: none;
-  }
-  .nav-links.open{ display: flex; }
-  .nav-links a{ padding: 0.85rem 0; border-bottom: 1px solid var(--line-soft); }
-  .nav-links a::after{ display: none; }
-  .nav-links .btn{ margin-top: 0.7rem; align-self: flex-start; }
-  .nav-toggle{ display: inline-flex; }
-}
-@media (min-width: 861px){
-  .nav-links{ display: flex !important; }
+@media (max-width: 480px){
+  .nav-right .btn-primary{ padding: 0.55rem 0.9rem; font-size: 0.82rem; }
 }
 
 /* -------------------------------------------------- open-now badge */

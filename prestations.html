@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prestations — Pavillon de Jade, restaurant chinois à Monthey</title>
-<meta name="description" content="La carte complète du Pavillon de Jade à Monthey : plus de 80 plats de cuisine chinoise, du canard pékinois aux spécialités malaisiennes, certifiés Fait Maison.">
+<meta name="description" content="Découvrez les prestations du Pavillon de Jade à Monthey : repas sur place, plats à emporter, salles privées pour banquets et réceptions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
@@ -16,18 +16,24 @@
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Pavillon de Jade</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 5h16M2 10h16M2 15h16"/></svg>
-    </button>
-    <ul class="nav-links" id="primary-nav">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="prestations.html" aria-current="page">Prestations</a></li>
-      <li><a href="a-propos.html">À propos</a></li>
-      <li><a href="avis.html">Avis clients</a></li>
-      <li><a href="horaires.html">Horaires &amp; localisation</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a class="btn btn-primary" href="https://restaurant-pavillon-de-jade.resos.com/booking" target="_blank" rel="noopener">Réserver une table</a></li>
-    </ul>
+    <div class="nav-right">
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-label="Ouvrir le menu de navigation">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+          <svg class="chevron" width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1.2l4 4 4-4"/></svg>
+        </summary>
+        <ul class="nav-dropdown">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="prestations.html" aria-current="page">Prestations</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="avis.html">Avis clients</a></li>
+          <li><a href="horaires.html">Horaires &amp; localisation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </details>
+      <a class="btn btn-primary" href="https://restaurant-pavillon-de-jade.resos.com/booking" target="_blank" rel="noopener">Réserver</a>
+    </div>
   </div>
 </header>
 
@@ -36,8 +42,8 @@
   <section class="hero" style="padding-bottom:2.5rem;">
     <div class="container">
       <span class="eyebrow">Prestations</span>
-      <h1 style="font-size:clamp(2.2rem,4.6vw,3.2rem); margin-top:0.8rem; max-width:18ch;">Plus de 80 plats, préparés sur place.</h1>
-      <p class="lede">Sur place, à emporter ou en groupe : la carte du Pavillon de Jade, certifiée Fait Maison, du canard pékinois aux spécialités malaisiennes.</p>
+      <h1 style="font-size:clamp(2.2rem,4.6vw,3.2rem); margin-top:0.8rem; max-width:18ch;">Un service pensé pour chaque façon de venir chez nous.</h1>
+      <p class="lede">Sur place, à emporter ou en groupe : le Pavillon de Jade s'adapte à votre moment — la carte complète se trouve sur la page Menu.</p>
     </div>
   </section>
 
@@ -79,181 +85,15 @@
     </div>
   </section>
 
-  <section id="carte">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">La carte</span>
-        <h2>Toute la carte, prix compris</h2>
-        <p>Tous les plats sont préparés sur place à partir de produits bruts et traditionnels, selon les critères du label Fait Maison. Prix en francs suisses, TVA comprise.</p>
+  <section>
+    <div class="container" style="text-align:center; max-width:36rem;">
+      <span class="eyebrow" style="justify-content:center; display:flex;">La carte</span>
+      <h2 style="margin-top:0.7rem; font-size:clamp(1.7rem,3.6vw,2.2rem);">Plus de 80 plats, certifiés Fait Maison</h2>
+      <svg class="ink-divider" viewBox="0 0 220 14" aria-hidden="true"><path d="M4 8c30-10 60 8 90-2s70 6 122-2"/></svg>
+      <p style="color:var(--ink-dim);">Potages, salades, entrées, poulet, canard pékinois, bœuf, porc, poisson, crevettes, légumes, riz et nouilles — tous les prix sur la page Menu.</p>
+      <div class="hero-actions" style="justify-content:center; margin-top:1.6rem;">
+        <a class="btn btn-primary" href="menu.html">Voir la carte complète</a>
       </div>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(19rem,1fr)); gap:2.4rem;">
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Potages</h3>
-          <ul class="menu-list">
-            <li><span class="name">Potage Laksa Malaisienne <span class="desc">crevette, poulet et lait de coco</span></span><span class="price">10.00 CHF</span></li>
-            <li><span class="name">Potage aux vermicelles chinois</span><span class="price">8.50 CHF</span></li>
-            <li><span class="name">Potage aigre-piquant</span><span class="price">9.00 CHF</span></li>
-            <li><span class="name">Potage aux raviolis chinois <span class="desc">porc et crevettes</span></span><span class="price">9.50 CHF</span></li>
-            <li><span class="name">Potage au maïs et poulet</span><span class="price">9.50 CHF</span></li>
-            <li><span class="name">Potage de Jade au poulet et pousse de bambou</span><span class="price">9.50 CHF</span></li>
-            <li><span class="name">Potage au crabe et asperges</span><span class="price">12.50 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Salades</h3>
-          <ul class="menu-list">
-            <li><span class="name">Salade « Pavillon de Jade » <span class="desc">crevettes, crabe et poulet</span></span><span class="price">17.00 CHF</span></li>
-            <li><span class="name">Salade chinoise aux crevettes</span><span class="price">16.00 CHF</span></li>
-            <li><span class="name">Salade chinoise au crabe</span><span class="price">17.50 CHF</span></li>
-            <li><span class="name">Salade chinoise au poulet</span><span class="price">11.00 CHF</span></li>
-            <li><span class="name">Salade de chou chinois</span><span class="price">7.50 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Entrées</h3>
-          <ul class="menu-list">
-            <li><span class="name">Rouleau de printemps <span class="desc">végétarien</span></span><span class="price">6.00 CHF</span></li>
-            <li><span class="name">Raviolis de porc à la vapeur</span><span class="price">12.50 CHF</span></li>
-            <li><span class="name">Raviolis de porc grillés</span><span class="price">13.50 CHF</span></li>
-            <li><span class="name">Raviolis aux légumes à la vapeur</span><span class="price">12.00 CHF</span></li>
-            <li><span class="name">Raviolis « Siu Mai » à la vapeur <span class="desc">porc et crevettes</span></span><span class="price">12.50 CHF</span></li>
-            <li><span class="name">Raviolis aux crevettes à la vapeur</span><span class="price">13.00 CHF</span></li>
-            <li><span class="name">Raviolis croustillants, sauce aigre-douce <span class="desc">porc et crevettes</span></span><span class="price">12.50 CHF</span></li>
-            <li><span class="name">Nems <span class="desc">porc</span></span><span class="price">15.00 CHF</span></li>
-            <li><span class="name">Travers de porc laqué</span><span class="price">19.00 CHF</span></li>
-            <li><span class="name">Brochettes de poulet satay</span><span class="price">12.00 CHF</span></li>
-            <li><span class="name">Beignets de crevettes, sauce aigre-douce</span><span class="price">20.00 CHF</span></li>
-            <li><span class="name">Toasts aux crevettes et au sésame</span><span class="price">14.00 CHF</span></li>
-            <li><span class="name">Assortiment de raviolis à la vapeur</span><span class="price">13.50 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Poulet</h3>
-          <ul class="menu-list">
-            <li><span class="name">Poulet au citron</span><span class="price">26.50 CHF</span></li>
-            <li><span class="name">Poulet aux échalotes, gingembre et poireaux</span><span class="price">26.50 CHF</span></li>
-            <li><span class="name">Poulet au légume sichuan</span><span class="price">26.50 CHF</span></li>
-            <li><span class="name">Poulet au sésame</span><span class="price">26.50 CHF</span></li>
-            <li><span class="name">Poulet aux champignons shiitake et pousse de bambou</span><span class="price">26.50 CHF</span></li>
-            <li><span class="name">Poulet à la sauce piquante aux haricots noirs</span><span class="price">26.50 CHF</span></li>
-            <li><span class="name">Poulet « Kon Poh » aux noix de cajou</span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Kari Ayam <span class="desc">poulet au curry de Malaisie</span></span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Poulet à la sauce aigre-douce</span><span class="price">26.50 CHF</span></li>
-            <li><span class="name">Poulet croustillant</span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Poulet épicé à la cassolette <span class="desc">avec copeaux de bonite</span></span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Ayam masak serai <span class="desc">poulet à la sauce citronnelle</span></span><span class="price">27.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Canard</h3>
-          <ul class="menu-list">
-            <li><span class="name">Canard pékinois <span class="desc">pour deux personnes</span></span><span class="price">120.00 CHF</span></li>
-            <li><span class="name">Canard laqué à la cantonnaise, sauce aux prunes</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Canard au légume sichuan</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Canard à l'ananas, sauce aigre-douce</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Canard à la sauce piquante aux haricots noirs</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Canard croustillant</span><span class="price">29.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Bœuf</h3>
-          <ul class="menu-list">
-            <li><span class="name">Bœuf croustillant <span class="desc">signature Jade</span></span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Bœuf aux champignons shiitake et pousse de bambou</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Bœuf au légume sichuan</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Bœuf à la sauce piquante aux haricots noirs</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Bœuf aux oignons</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Bœuf aux échalotes, gingembre et poireaux</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Bœuf au poivre noir</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Kari daging <span class="desc">bœuf au curry de Malaisie</span></span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Bœuf rendang Malaisie</span><span class="price">30.00 CHF</span></li>
-            <li><span class="name">Bœuf sauce cacahuète</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Daging masak daun selasih <span class="desc">bœuf sauce au basilic</span></span><span class="price">29.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Porc</h3>
-          <ul class="menu-list">
-            <li><span class="name">Porc à la sauce piquante aux haricots noirs</span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Porc aux champignons shiitake et pousse de bambou</span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Porc au légume sichuan</span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Porc à la sauce aigre-douce</span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">« Mapo tofu » <span class="desc">tofu et haché de porc à la cassolette</span></span><span class="price">27.00 CHF</span></li>
-            <li><span class="name">Aubergines aux hachées de porc à la cassolette</span><span class="price">27.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Poisson</h3>
-          <ul class="menu-list">
-            <li><span class="name">Cabillaud à la sauce piquante aux haricots noirs</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Cabillaud à la sauce aigre-douce</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Cabillaud au sambal</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Cabillaud aux champignons shiitake et pousse de bambou</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Cabillaud au curry de Malaisie</span><span class="price">28.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Crevettes</h3>
-          <ul class="menu-list">
-            <li><span class="name">Crevettes « Kon Poh » aux noix de cajou</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Crevettes au légume sichuan</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Crevettes aux échalotes, gingembre et poireaux</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Udang masak serai <span class="desc">crevettes à la sauce citronnelle</span></span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Crevettes à la sauce aigre-douce</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Crevettes au sambal</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Crevettes au piment doux</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Crevettes au curry de Malaisie</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Crevettes au lait de coco</span><span class="price">32.00 CHF</span></li>
-            <li><span class="name">Calamars caramélisés</span><span class="price">29.00 CHF</span></li>
-            <li><span class="name">Crevettes à l'ail et poivre noir <span class="desc">recommandé du chef</span></span><span class="price">33.00 CHF</span></li>
-            <li><span class="name">Fruits de mer au curry de Malaisie</span><span class="price">33.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Légumes</h3>
-          <ul class="menu-list">
-            <li><span class="name">Légumes quatre saisons</span><span class="price">19.00 CHF</span></li>
-            <li><span class="name">Aubergines à la cassolette</span><span class="price">24.00 CHF</span></li>
-            <li><span class="name">Tofu au curry de Malaisie</span><span class="price">24.00 CHF</span></li>
-            <li><span class="name">Sauté de tofu et légumes</span><span class="price">24.00 CHF</span></li>
-            <li><span class="name">Laitue sauce d'huître</span><span class="price">18.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Nouilles &amp; riz</h3>
-          <ul class="menu-list">
-            <li><span class="name">Nouilles sautées aux crevettes</span><span class="price">28.00 CHF</span></li>
-            <li><span class="name">Nouilles sautées au poulet</span><span class="price">24.00 CHF</span></li>
-            <li><span class="name">Nouilles sautées au bœuf</span><span class="price">25.00 CHF</span></li>
-            <li><span class="name">Nouilles sautées aux légumes</span><span class="price">19.00 CHF</span></li>
-            <li><span class="name">Vermicelles de riz sautés au poulet</span><span class="price">25.00 CHF</span></li>
-          </ul>
-        </div>
-
-        <div class="reveal">
-          <h3 style="font-size:1.15rem;">Garnitures</h3>
-          <ul class="menu-list">
-            <li><span class="name">Riz sauté aux crevettes <span class="desc">bol</span></span><span class="price">8.50 CHF</span></li>
-            <li><span class="name">Riz cantonnais <span class="desc">bol, avec jambon de dinde</span></span><span class="price">5.50 CHF</span></li>
-            <li><span class="name">Riz à la vapeur <span class="desc">bol</span></span><span class="price">3.00 CHF</span></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <p class="menu-note">Provenance : bœuf et porc de Suisse · poulet de Suisse, France et Pologne · canard d'Allemagne · crevettes du Vietnam (certifiées ASC-AQUA) · cabillaud de l'Atlantique nord-ouest (certifié MSC). Une question sur les allergènes ? Notre équipe vous renseigne volontiers.</p>
     </div>
   </section>
 
@@ -279,6 +119,7 @@
       <div>
         <h4>Explorer</h4>
         <ul>
+          <li><a href="menu.html">Menu</a></li>
           <li><a href="prestations.html">Prestations</a></li>
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="avis.html">Avis clients</a></li>

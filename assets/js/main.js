@@ -70,20 +70,25 @@
     });
   }
 
-  /* ---------------------------------------------------------- navigation */
+  /* ---------------------------------------------------------- navigation
+     Le menu est un <details>/<summary> : il s'ouvre et se ferme nativement
+     au clic, sans JavaScript. Le JS ajoute seulement des fermetures
+     supplémentaires (clic extérieur, Échap, clic sur un lien) pour un
+     comportement plus proche d'un menu d'application. */
   function initNav() {
-    var toggle = document.querySelector('.nav-toggle');
-    var links = document.querySelector('.nav-links');
-    if (!toggle || !links) return;
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    var menu = document.querySelector('.nav-menu');
+    if (!menu) return;
+
+    function close() { menu.removeAttribute('open'); }
+
+    document.addEventListener('click', function (e) {
+      if (menu.hasAttribute('open') && !menu.contains(e.target)) close();
     });
-    links.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+    menu.querySelectorAll('.nav-dropdown a').forEach(function (a) {
+      a.addEventListener('click', close);
     });
   }
 

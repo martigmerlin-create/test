@@ -16,18 +16,24 @@
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span>Pavillon de Jade</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Ouvrir le menu">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 5h16M2 10h16M2 15h16"/></svg>
-    </button>
-    <ul class="nav-links" id="primary-nav">
-      <li><a href="index.html" aria-current="page">Accueil</a></li>
-      <li><a href="prestations.html">Prestations</a></li>
-      <li><a href="a-propos.html">À propos</a></li>
-      <li><a href="avis.html">Avis clients</a></li>
-      <li><a href="horaires.html">Horaires &amp; localisation</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a class="btn btn-primary" href="https://restaurant-pavillon-de-jade.resos.com/booking" target="_blank" rel="noopener">Réserver une table</a></li>
-    </ul>
+    <div class="nav-right">
+      <details class="nav-menu">
+        <summary class="nav-toggle" aria-label="Ouvrir le menu de navigation">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+          <svg class="chevron" width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1.2l4 4 4-4"/></svg>
+        </summary>
+        <ul class="nav-dropdown">
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="prestations.html">Prestations</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="avis.html">Avis clients</a></li>
+          <li><a href="horaires.html">Horaires &amp; localisation</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </details>
+      <a class="btn btn-primary" href="https://restaurant-pavillon-de-jade.resos.com/booking" target="_blank" rel="noopener">Réserver</a>
+    </div>
   </div>
 </header>
 
@@ -148,6 +154,7 @@
       <div>
         <h4>Explorer</h4>
         <ul>
+          <li><a href="menu.html">Menu</a></li>
           <li><a href="prestations.html">Prestations</a></li>
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="avis.html">Avis clients</a></li>
