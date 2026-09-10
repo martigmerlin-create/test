@@ -365,7 +365,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 780px){ .photo-row{ grid-template-columns: 1fr; } }
 .photo-banner{ aspect-ratio: 21/9; }
 .photo-portrait{ aspect-ratio: 4/5; }
-@media (max-width: 640px){ .photo-banner{ aspect-ratio: 4/3; } }
+
+/* Sur téléphone, on retire les photos pour alléger la page : le
+   texte reste la priorité et le poids de chargement diminue. */
+@media (max-width: 640px){
+  .hero-art,
+  .photo-col,
+  .photo-section{ display: none; }
+}
 
 /* -------------------------------------------------- reveal-on-scroll */
 .reveal{ opacity: 1; transform: none; }
