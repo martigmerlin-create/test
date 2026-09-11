@@ -89,13 +89,21 @@
 
   /* ---------------------------------------------------------- reveal on scroll
      Tout est visible par défaut (voir CSS .reveal). On ne masque que ce qui
-     est déjà hors écran au chargement, jamais le premier écran. */
+     est déjà hors écran au chargement, jamais le premier écran. Les éléments
+     qui partagent un même parent (une grille de cartes, par ex.) reçoivent
+     un index --reveal-i pour apparaître en cascade plutôt que tous à la fois. */
   function initReveal() {
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var items = document.querySelectorAll('.reveal');
     if (!items.length || reduced || !('IntersectionObserver' in window)) return;
 
+    var counts = new Map();
     items.forEach(function (el) {
+      var parent = el.parentElement;
+      var i = counts.get(parent) || 0;
+      el.style.setProperty('--reveal-i', i);
+      counts.set(parent, i + 1);
+
       var rect = el.getBoundingClientRect();
       if (rect.top > window.innerHeight * 0.92) el.classList.add('pre');
     });
@@ -111,6 +119,86 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 
     items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------------------------------------------------------- fond animé
+     Trois halos dérivent doucement pendant le défilement, et l'en-tête
+     bascule en variante claire lorsqu'une section sombre passe dessous —
+     comme sur les pages produit d'Apple, en restant très discret. */
+  function initScrollScene() {
+    var scene = document.querySelector('.bg-scene');
+    var header = document.querySelector('.site-header');
+    if (!scene && !header) return;
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var blobs = scene ? scene.querySelectorAll('span') : [];
+    var darkSections = document.querySelectorAll('[data-theme="dark"]');
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var progress = max > 0 ? window.scrollY / max : 0;
+
+      if (!reduced) {
+        blobs.forEach(function (b, i) {
+          var drift = (progress - 0.5) * (36 + i * 16);
+          b.style.transform = 'translateY(' + drift.toFixed(1) + 'px)';
+        });
+      }
+
+      if (header && darkSections.length) {
+        var headerBottom = header.getBoundingClientRect().bottom;
+        var onDark = false;
+        darkSections.forEach(function (s) {
+          var r = s.getBoundingClientRect();
+          if (headerBottom > r.top && headerBottom < r.bottom) onDark = true;
+        });
+        header.classList.toggle('on-dark', onDark);
+        document.body.dataset.scene = onDark ? 'dark' : 'light';
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  }
+
+  /* ---------------------------------------------------------- parallaxe héro
+     Léger déplacement de la photo héro pendant le défilement — subtil,
+     jamais au point de gêner la lecture, et désactivé si l'utilisateur
+     préfère moins de mouvement. */
+  function initHeroParallax() {
+    var img = document.querySelector('.hero-art img');
+    if (!img || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var wrap = img.closest('.hero-art');
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var rect = wrap.getBoundingClientRect();
+      var offset = rect.top * 0.06;
+      img.style.transform = 'translateY(' + offset.toFixed(1) + 'px) scale(1.08)';
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
   }
 
   function initInkDividers() {
@@ -214,5 +302,7 @@
     initReveal();
     initInkDividers();
     initReservationForm();
+    initScrollScene();
+    initHeroParallax();
   });
 })();
